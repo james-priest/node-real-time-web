@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Chat client</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- <link href="css/style.css" rel="stylesheet"> -->
+    </head>
+    <body>
+    <h1>Hello from Chattr</h1>
+
+    <form action="" id="chat_form">
+        <div>Status: <span id="status"></span></div>
+        <div id="chat"></div>
+        <input type="text" name="" id="chat_input" autofocus="autofocus">
+        <button type="submit">Send</button>
+    </form>
+
+    <script src="/scripts/jquery.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+        var nickname = "";
+        var socket = io.connect('http://localhost:8080');
+        socket.on('messages', function(data){
+            // alert(data.hello);
+            console.log(data.hello);
+            insertMessage(data);
+        });
+
+        socket.on('connect', function(data) {
+            $('#status').html('Connected to chattr');
+            nickname = prompt("What's you nickname?", nickname);
+            $('#chat_input').focus();
+            socket.emit('join', nickname);
+        })
+
+        $('#chat_form').submit(function(e) {
+            var message = $('#chat_input').val();
+            // insertMessage(message);
+            // emit the message on the server
+            socket.emit('messages', message);
+            $('#chat_input').val('');
+            return false;
+        })
+
+        function insertMessage(msg) {
+            var log =  $('#chat').html() + '<br />' + msg;
+            $('#chat').html(log);
+        }
+    </script>
+
+    </body>
+</html>

@@ -1,0 +1,12 @@
+#chatters_container {
+    width: 100px;
+    float: left;
+    border: 1px solid gray;
+    padding: 0 10px;
+}
+#chat_container {
+    width: 400px;
+    float: left;
+    border: 1px solid gray;    
+    padding: 10px;
+}
