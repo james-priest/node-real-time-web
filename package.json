@@ -1,0 +1,34 @@
+{
+  "name": "node-real-time-web",
+  "version": "0.1.0",
+  "description": "Code from Code School's Real-time Web with Node.js course",
+  "main": "a-hello-dog.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/james-priest/node-real-time-web.git"
+  },
+  "keywords": [
+    "node",
+    "express",
+    "socket.io",
+    "redis"
+  ],
+  "author": "James Priest",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/james-priest/node-real-time-web/issues"
+  },
+  "homepage": "https://github.com/james-priest/node-real-time-web#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "jquery": "^3.2.1",
+    "p5": "^0.5.16",
+    "redis": "^2.8.0",
+    "request": "^2.83.0",
+    "socket.io": "^2.0.4"
+  }
+}
